@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Энциклопедия Тайги</title>
+
+    <style>
+        /* Общие стили */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000; /* Черный фон, пока грузится видео */
+            color: #e8f5e9;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Настройка видео-фона */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Видео растягивается на весь экран */
+        }
+
+        /* Затемнение поверх видео, чтобы текст читался */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: -1;
+        }
+
+        /* Шапка */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.4);
+            border-bottom: 2px solid #2e7d32;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Контейнер для карточек */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Стиль карточки */
+        .card {
+            background: rgba(0, 0, 0, 0.7); /* Темный фон карточки */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px); /* Легкое размытие под карточкой */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #81c784;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            background-color: #222;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin: 0 0 10px 0;
+            color: #81c784;
+        }
+
+        .card p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0,0,0,0.8);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="background.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <header>
+        <h1>🌲 Энциклопедия Тайги</h1>
+        <p>Фотоархив дикой природы</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="bear.jpg" alt="Медведь">
+            <div class="card-content">
+                <h2>🐻 Медведь</h2>
+                <p>Хозяин леса. Мощный хищник, обладающий невероятной силой и выносливостью.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="wolf.jpg" alt="Волк">
+            <div class="card-content">
+                <h2>🐺 Волк</h2>
+                <p>Умный и преданный своей стае охотник, символ лесного духа.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="fox.jpg" alt="Лиса">
+            <div class="card-content">
+                <h2>🦊 Лиса</h2>
+                <p>Хитрая и ловкая обитательница тайги с ярко-рыжим мехом.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="boar.jpg" alt="Кабан">
+            <div class="card-content">
+                <h2>🐗 Кабан</h2>
+                <p>Крепкий и бесстрашный обитатель чащи, всегда готовый постоять за себя.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="lynx.jpg" alt="Рысь">
+            <div class="card-content">
+                <h2>🐱 Рысь</h2>
+                <p>Скрытная лесная кошка, мастер бесшумного передвижения и засад.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        🌲 Тайга — дом дикой природы
+    </footer>
+
+</body>
+</html>
